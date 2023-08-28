@@ -7,15 +7,30 @@ class window(qtw.QMainWindow,Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.b1.clicked.connect(lambda: self.b1.setText("O"))
-        self.b2.clicked.connect(lambda: self.b2.setText("O"))
-        self.b3.clicked.connect(lambda: self.b3.setText("O"))
-        self.b5.clicked.connect(lambda: self.b5.setText("O"))
-        self.b6.clicked.connect(lambda: self.b6.setText("O"))
-        self.b7.clicked.connect(lambda: self.b7.setText("O"))
-        self.b8.clicked.connect(lambda: self.b8.setText("O"))
-        self.b9.clicked.connect(lambda: self.b9.setText("O"))
-        self.b10.clicked.connect(lambda: self.b10.setText("O"))
+        self.counter = 0
+
+        self.b1.clicked.connect(lambda: self.clicker(self.b1))
+        self.b2.clicked.connect(lambda: self.clicker(self.b2))
+        self.b3.clicked.connect(lambda: self.clicker(self.b3))
+        self.b5.clicked.connect(lambda: self.clicker(self.b5))
+        self.b6.clicked.connect(lambda: self.clicker(self.b6))
+        self.b7.clicked.connect(lambda: self.clicker(self.b7))
+        self.b8.clicked.connect(lambda: self.clicker(self.b8))
+        self.b9.clicked.connect(lambda: self.clicker(self.b9))
+        self.b10.clicked.connect(lambda: self.clicker(self.b10))
+
+    def clicker(self, b):
+         if self.counter % 2 == 0:
+            mark = "X"
+            self.label.setText("O's Turn")
+         else:
+            mark = "O"
+            self.label.setText("X's Turn")
+         b.setText(mark)
+
+         self.counter += 1
+
+
 
     
 
