@@ -55,10 +55,22 @@ class window(qtw.QMainWindow,Ui_MainWindow):
             self.b10.clicked.connect(lambda: self.comp_choice())
             
     def comp_choice(self):
-
-                    self.computer_choice = random.choice(self.button_list)
-                    self.computer_choice.setText("X")
-                    
+                    counter = 0
+                    while True:
+                                        
+                        self.computer_choice = random.choice(self.button_list)
+                        if self.computer_choice.text() != "O" and self.computer_choice.text() != "X":
+                            self.computer_choice.setText("X")
+                            counter=0
+                            break
+                        else:
+                             counter+=1
+                             if counter == 200:
+                                  break
+                             
+                             continue
+                             
+                              
     
                      
                      
